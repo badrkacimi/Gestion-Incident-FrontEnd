@@ -1,0 +1,172 @@
+<div class="container">
+	
+	<button class="btn btn-primary" ng-click="frmToggle1()">Ajouter une fiche</button>
+
+	
+<label for="Rechercher" class="col-sm-3 control-label">Rechercher par immatriculation </label>
+<div class="col-sm-3">
+<input class="form-control" type="text" ng-model="search" placeholder="Rechercher" ></input>
+</div>
+
+	<br/>
+	<form class="form-horizontal" id="ficheFormSearchId" ng-submit="searchFiche()" hidden='true'>
+		<div class="form-group">
+			<label for="fiche" class="col-sm-2 control-label"></label>
+			<div class="col-sm-10">
+				<input type="number" ng-model="frm.id" class="form-control"/>
+				<br/>
+				<button type="submit" value="submit" class="btn btn-primary">Chercher</button>
+			</div>
+		</div>
+	</form>
+	<form class="form-horizontal" id="ficheForm" ng-submit="addFiche(frm)" hidden='true'>
+		<div class="form-group">
+			<label for="lieuIncident" class="col-sm-2 control-label">Lieu d'incident</label>
+			<div class="col-sm-10">
+				<input type="text" ng-model="frm.lieuIncident" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="dateIncident" class="col-sm-2 control-label">Date d'incident</label>
+			<div class="col-sm-10">
+				<input type="date" ng-model="frm.dateIncident" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="numeroFiche" class="col-sm-2 control-label">Numero fiche</label>
+			<div class="col-sm-10">
+				<input type="text" ng-model="frm.numeroFiche" class="form-control"/>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="descriptionIncident" class="col-sm-2 control-label">Description incident</label>
+			<div class="col-sm-10">
+				<input type="text" ng-model="frm.descriptionIncident" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="nombreVoyageur" class="col-sm-2 control-label">Nombre voyageur</label>
+			<div class="col-sm-10">
+				<input type="number" ng-model="frm.nombreVoyageur" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="incidentCritique" class="col-sm-2 control-label">Incident critique</label>
+			<div class="col-sm-10">
+				<input type="text" ng-model="frm.incidentCritique" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group" ng-init="getAllvehicule()">
+			<label for="incidentCritique" class="col-sm-2 control-label">Immat Vehicule</label>
+			<div class="col-sm-10">
+				<select class="form-group"  ng-model="frm.vehicule" ng-options="v.immatriculation for v in vehicules">
+
+	       	</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" value="submit" class="btn btn-primary">Ajouter</button>
+			</div>
+		</div>
+		
+	</form>
+
+
+
+	<form class="form-horizontal" id="updateFiche" ng-submit="updateFiche(ufrm)" hidden='true'>
+			<div class="form-group">
+				<label for="lieuIncident" class="col-sm-2 control-label">Lieu d'incident</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="ufrm.lieuIncident" class="form-control"/>
+				</div>
+			</div>
+	
+			<div class="form-group">
+				<label for="dateIncident" class="col-sm-2 control-label">Date d'incident</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="ufrm.dateIncident" class="form-control"/>
+				</div>
+			</div>
+	
+			<div class="form-group">
+				<label for="numeroFiche" class="col-sm-2 control-label">Numero fiche</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="ufrm.numeroFiche" class="form-control"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="descriptionIncident" class="col-sm-2 control-label">Description incident</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="ufrm.descriptionIncident" class="form-control"/>
+				</div>
+			</div>
+	
+			<div class="form-group">
+				<label for="nombreVoyageur" class="col-sm-2 control-label">Nombre voyageur</label>
+				<div class="col-sm-10">
+					<input type="number" ng-model="ufrm.nombreVoyageur" class="form-control"/>
+				</div>
+			</div>
+	
+			<div class="form-group">
+				<label for="incidentCritique" class="col-sm-2 control-label">Incident critique</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="u.incidentCritique" class="form-control"/>
+				</div>
+			</div>
+	
+			<div class="form-group"   ng-init="getAllvehicule()">
+				<label for="incidentCritique" class="col-sm-2 control-label">Immat Vehicule</label>
+				<div class="col-sm-10">
+					<select class="form-group"  ng-model="ufrm.vehicule" ng-options="v.immatriculation for v in vehicules">
+	
+				   </select>
+				</div>
+			</div>
+	
+			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" value="submit" class="btn btn-warning">Update</button>
+				</div>
+			</div>
+		</form>
+
+	<br/>
+
+	<table class="table table-striped">
+		<tr>
+			<th>Date Incident</th>
+			<th>Numero Fiche</th>
+			<th>Lieu Incident</th>
+			<th>Incident Critique</th>
+			<th>Nombre Voyageur</th>
+			<th>Desc Incident</th>
+			<th>Immat Vehicule</th>
+			 <th>Supprimer</th>
+			 <th>Modifier</th>
+
+		 </tr>
+	 	<tr ng-repeat="fiche in fiches | filter: search">
+	 		<td>{{ fiche.DateIncident | date :'yyyy-dd-mm' }}</td>
+			<td>{{ fiche.numeroFiche }}</td>
+	 		<td>{{ fiche.lieuIncident }}</td>
+			<td>{{ fiche.incidentCritique }}</td>
+	 		<td>{{ fiche.nombreVoyageur }}</td>
+			 <td>{{ fiche.descriptionIncident }}</td>
+			 <td>{{ fiche.vehicule.immatriculation }}</td>			
+			 <td><a href="javascript:void(0);" class="glyphicon glyphicon-trash" ng-click="removeFiche(fiche.numeroFiche)"></a></td>
+			 <td><a href="javascript:void(0);" class="glyphicon glyphicon-pencil" ng-click="frmToggle3(fiche)"></a></td>
+	 	</tr>
+	</table>
+
+</div>
