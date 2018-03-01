@@ -1,5 +1,5 @@
 # Gestion-Incident-FrontEnd-
- * @license AngularJS v1.5.8, bootstap 3
+ * @license AngularJS v1.5.8, CSS, bootstap 3
  
 # How to run
 Make sure you are running the REST API on port 8080
