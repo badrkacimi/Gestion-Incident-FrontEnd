@@ -35,16 +35,16 @@ controller.controller(
 
             }
 
-            $scope.addFiche = function (sukriFiche) {
+            $scope.addFiche = function (badrFiche) {
 
                 var fiche = {
-                    'lieuIncident': sukriFiche.lieuIncident,
-                    'DateIncident': sukriFiche.DateIncident,
-                    'numeroFiche': sukriFiche.numeroFiche,
-                    'descriptionIncident': sukriFiche.descriptionIncident,
-                    'nombreVoyageur': sukriFiche.nombreVoyageur,
-                    'incidentCritique': sukriFiche.incidentCritique,
-                    'vehicule': sukriFiche.vehicule
+                    'lieuIncident': badrFiche.lieuIncident,
+                    'DateIncident': badrFiche.DateIncident,
+                    'numeroFiche': badrFiche.numeroFiche,
+                    'descriptionIncident': badrFiche.descriptionIncident,
+                    'nombreVoyageur': badrFiche.nombreVoyageur,
+                    'incidentCritique': badrFiche.incidentCritique,
+                    'vehicule': badrFiche.vehicule
                 }
 
                 console.log(fiche);
